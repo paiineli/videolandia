@@ -1,0 +1,54 @@
+﻿@model IEnumerable<videolandia.Models.GeneroFilme>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<h1>Relacionamentos Filme e Gênero</h1>
+<br/>
+
+<p>
+    <a asp-action="Criar" class="btn btn-dark" style="width: 200px;">Criar Nova Relação</a>
+</p>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Filme.NomeFilme)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genero.NomeGenero)
+            </th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Filme.NomeFilme)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genero.NomeGenero)
+                </td>
+                <td>
+                    <span style="display: inline-block;">
+                        @Html.ActionLink("Editar", "Editar", new { generoId = item.GeneroId, filmeId = item.FilmeId }, new { @class = "btn btn-primary btn-sm" })
+                    </span>
+                    <span style="display: inline-block;">
+                        @Html.ActionLink("Detalhes", "Detalhes", new { generoId = item.GeneroId, filmeId = item.FilmeId }, new { @class = "btn btn-info btn-sm" })
+                    </span>
+                    <span style="display: inline-block;">
+                        @Html.ActionLink("Excluir", "Deletar", new { generoId = item.GeneroId, filmeId = item.FilmeId }, new { @class = "btn btn-danger btn-sm" })
+                    </span>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>

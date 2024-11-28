@@ -1,0 +1,61 @@
+﻿@model videolandia.Models.Artista
+
+@{
+    ViewData["Title"] = "Criar Artista";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<h1 class="mb-4">Criar Novo Artista</h1>
+
+<h4>Artista</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <form asp-action="Criar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Nome do Artista -->
+            <div class="form-group">
+                <label asp-for="NomeArtista" class="control-label">Nome do Artista</label>
+                <input asp-for="NomeArtista" class="form-control" placeholder="Digite o nome do artista" />
+                <span asp-validation-for="NomeArtista" class="text-danger"></span>
+            </div>
+
+            <!-- Data de Nascimento -->
+            <div class="form-group">
+                <label asp-for="DtNascimento" class="control-label">Data de Nascimento</label>
+                <input asp-for="DtNascimento" class="form-control" type="date" />
+                <span asp-validation-for="DtNascimento" class="text-danger"></span>
+            </div>
+
+            <!-- País de Nascimento -->
+            <div class="form-group">
+                <label asp-for="PaisNascimento" class="control-label">País de Nascimento</label>
+                <input asp-for="PaisNascimento" class="form-control" placeholder="Digite o país de nascimento" />
+                <span asp-validation-for="PaisNascimento" class="text-danger"></span>
+            </div>
+
+            <!-- URL da Foto do Artista -->
+            <div class="form-group">
+                <label asp-for="ArtistaUrl" class="control-label">URL da Foto</label>
+                <input asp-for="ArtistaUrl" class="form-control" placeholder="Insira a URL da foto do artista" />
+                <span asp-validation-for="ArtistaUrl" class="text-danger"></span>
+            </div>
+            <br/>
+            <!-- Botões -->
+            <div class="form-group">
+                <input type="submit" value="Criar Novo" class="btn btn-primary" style="width: 200px;"  />
+                <a class="btn btn-dark" asp-action="Index" style="width: 200px;">Voltar para a Lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

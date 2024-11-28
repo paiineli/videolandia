@@ -1,0 +1,48 @@
+﻿@model videolandia.Models.ArtistaFilme
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+
+<h1 class="mb-4">Detalhes da Relação</h1>
+
+
+
+<div>
+    <h4>Gênero de Filme</h4>
+    <hr />
+    <dl class="row">
+        <!-- Exibição do nome do filme -->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Filme)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Filme.NomeFilme)
+        </dd>
+
+        <!-- Exibição do nome do artista -->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Artista)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Artista.NomeArtista)
+        </dd>
+
+        <!-- Exibição do nome do personagem -->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Personagem)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Personagem)
+        </dd>
+    </dl>
+</div>
+
+<div class="mt-4">
+    <a asp-action="Editar" asp-route-artistaId="@Model.ArtistaId" asp-route-filmeId="@Model.FilmeId" class="btn btn-primary" style="width: 200px;">Editar</a> 
+    <a asp-action="Index" class="btn btn-dark" style="width: 200px;">Voltar para a lista</a>
+</div>

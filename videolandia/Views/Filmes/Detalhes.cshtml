@@ -1,0 +1,98 @@
+﻿@model videolandia.Models.Filme
+
+@{
+    ViewData["Title"] = "Detalhes do Filme";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<h1>Detalhes</h1>
+
+<div>
+    <!-- Nome do Filme -->
+    <h4>
+        <p style="margin-top: 10px; font-weight: bold;">@Model.NomeFilme</p>
+    </h4>
+    <hr />
+
+    <dl class="row">
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-start;">
+
+            <!-- Imagem do Poster -->
+            <dd class="col-sm-10">
+                <img src="@Model.PosterUrl" height="150"
+                     style="display: block; float: left; margin: 0 auto; border-radius: 10px; box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);"
+                     alt="@Model.NomeFilme" />
+            </dd>
+
+            <!-- Data de Lançamento -->
+            <dt class="col-sm-2">
+                Data de Lançamento
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DtLancamento)
+            </dd>
+
+            <!-- Diretor -->
+            <dt class="col-sm-2">
+                Diretor
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Diretor)
+            </dd>
+
+            <!-- Gêneros -->
+            <dd class="col-sm-10">
+                <p style="font-weight: bold;">Gênero(s)</p>
+                @foreach (var item in Model?.Generos)
+                {
+                    @item.Genero?.NomeGenero
+
+                    <br />
+                }
+            </dd>
+        </div>
+    </dl>
+
+    <!-- Artistas -->
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+        @foreach (var item in Model?.Artistas)
+        {
+            <!-- Link para detalhes do artista -->
+            <div style="text-align: center; width: 150px;">
+                <a asp-area="" asp-controller="Artistas" asp-action="Detalhes" asp-route-id="@item.Artista.Id">
+                    <img src="@item.Artista.ArtistaUrl" height="100"
+                         style="display: block; margin: 0 auto; border-radius: 10px; box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);"
+                         alt="@item.Artista?.NomeArtista" />
+                </a>
+                <p style="margin-top: 10px; font-weight: bold;">@item.Artista?.NomeArtista</p>
+                <p>@item.Personagem</p>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Links para edição e lista -->
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="d-flex flex-row gap-2 mt-4">
+        <a asp-action="Editar" asp-route-id="@Model?.Id" class="btn btn-primary" style="width: 200px;">Editar</a>
+        <a asp-action="Index" class="btn btn-dark" style="width: 200px;">Voltar para a lista</a>
+    </div>
+}
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br />
+
+
+
+
+
+
+

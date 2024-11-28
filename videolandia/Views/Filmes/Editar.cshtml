@@ -1,0 +1,68 @@
+﻿@model videolandia.Models.Filme
+
+@{
+    ViewData["Title"] = "Editar Filme";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<h1>Editar</h1>
+
+<h4>Filme</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Editar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Campo Hidden para Id -->
+            <input type="hidden" asp-for="Id" />
+
+            <!-- Campo Nome do Filme -->
+            <div class="form-group">
+                <label asp-for="NomeFilme" class="control-label">Nome do Filme</label>
+                <input asp-for="NomeFilme" class="form-control" />
+                <span asp-validation-for="NomeFilme" class="text-danger"></span>
+            </div>
+
+            <!-- Campo URL do Poster -->
+            <div class="form-group">
+                <label asp-for="PosterUrl" class="control-label">URL do Poster</label>
+                <input asp-for="PosterUrl" class="form-control" />
+                <span asp-validation-for="PosterUrl" class="text-danger"></span>
+            </div>
+
+            <!-- Campo Data de Lançamento -->
+            <div class="form-group">
+                <label asp-for="DtLancamento" class="control-label">Data de Lançamento</label>
+                <input asp-for="DtLancamento" class="form-control" />
+                <span asp-validation-for="DtLancamento" class="text-danger"></span>
+            </div>
+
+            <!-- Campo Diretor -->
+            <div class="form-group">
+                <label asp-for="Diretor" class="control-label">Diretor</label>
+                <input asp-for="Diretor" class="form-control" />
+                <span asp-validation-for="Diretor" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" style="width: 200px;" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<!-- Link para voltar à lista -->
+<div class="d-flex flex-column align-items-start gap-2 mt-4">
+    <a asp-action="Index" class="btn btn-dark" style="width: 200px;">Voltar para a Lista</a>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

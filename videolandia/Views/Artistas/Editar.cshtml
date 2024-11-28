@@ -1,0 +1,62 @@
+﻿@model videolandia.Models.Artista
+
+@{
+    ViewData["Title"] = "Editar Artista";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<h1 class="mb-4">Editar Artista</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Editar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <!-- Nome do Artista -->
+            <div class="form-group">
+                <label asp-for="NomeArtista" class="control-label"></label>
+                <input asp-for="NomeArtista" class="form-control" />
+                <span asp-validation-for="NomeArtista" class="text-danger"></span>
+            </div>
+
+            <!-- Data de Nascimento -->
+            <div class="form-group">
+                <label asp-for="DtNascimento" class="control-label"></label>
+                <input asp-for="DtNascimento" type="date" class="form-control" />
+                <span asp-validation-for="DtNascimento" class="text-danger"></span>
+            </div>
+
+            <!-- País de Nascimento -->
+            <div class="form-group">
+                <label asp-for="PaisNascimento" class="control-label"></label>
+                <input asp-for="PaisNascimento" class="form-control" />
+                <span asp-validation-for="PaisNascimento" class="text-danger"></span>
+            </div>
+
+            <!-- URL da Foto do Artista -->
+            <div class="form-group">
+                <label asp-for="ArtistaUrl" class="control-label"></label>
+                <input asp-for="ArtistaUrl" type="url" class="form-control" />
+                <span asp-validation-for="ArtistaUrl" class="text-danger"></span>
+            </div>
+            <br/>
+            <!-- Botão de Salvar -->
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" style="width: 200px;"  />
+            </div>
+        </form>
+    </div>
+</div>
+<br/>
+<div>
+    <a class="btn btn-dark" style="width: 200px;" asp-action="Index">Voltar para a Lista</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

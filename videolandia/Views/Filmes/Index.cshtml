@@ -1,0 +1,46 @@
+﻿@model IEnumerable<videolandia.Models.Filme>
+
+@{
+    ViewData["Title"] = "Índice de Filmes";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<h1>Índice de Filmes</h1>
+
+<p>
+    <form asp-action="Criar">
+        <button type="submit" class="btn btn-dark" style="width: 300px">Criar Novo</button>
+    </form>
+</p>
+<br/>
+<form asp-controller="Filmes" asp-action="Index" method="get">
+    <p>
+        <label>Título: <input type="text" name="SearchString" /></label>
+        <input type="submit" value="Filtrar" />
+    </p>
+</form>
+<br/>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-4">
+            <div class="card" style="width: 18rem;">
+                <img src="@item.PosterUrl" class="card-img-top" alt="Capa de @item.NomeFilme">
+                <div class="card-body">
+                    <h5 class="card-title">@item.NomeFilme</h5>
+                    <p class="card-text">Lançamento: @item.DtLancamento.Year</p>
+                    <p class="card-text">Diretor: @item.Diretor</p>
+
+                    <!-- Ações -->
+                    <div>
+                        <a class="btn btn-primary btn-sm w-100 mb-2" asp-action="Editar" asp-route-id="@item.Id">Editar</a>
+                        <a class="btn btn-info btn-sm w-100 mb-2" asp-action="Detalhes" asp-route-id="@item.Id">Detalhes</a>
+                        <a class="btn btn-danger btn-sm w-100" asp-action="Deletar" asp-route-id="@item.Id">Excluir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

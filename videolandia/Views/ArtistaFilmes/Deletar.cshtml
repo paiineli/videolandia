@@ -1,0 +1,48 @@
+﻿@model videolandia.Models.ArtistaFilme
+
+@{
+    ViewData["Title"] = "Excluir";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<h1 class="mb-4">Excluir Relação</h1>
+
+<h3 class="">Tem certeza de que deseja excluir esta relação?</h3>
+<div class="mt-4">
+    <h4>Detalhes da Relação</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            Artista
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Artista.NomeArtista)
+        </dd>
+        <dt class="col-sm-3">
+            Filme
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Filme.NomeFilme)
+        </dd>
+        <dt class="col-sm-3">
+            Personagem
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Personagem)
+        </dd>
+    </dl>
+
+    <form asp-action="Deletar">
+        <input type="hidden" asp-for="ArtistaId" />
+        <input type="hidden" asp-for="FilmeId" />
+        <br/>
+        <div class="d-flex gap-3">
+            <button type="submit" class="btn btn-danger" style="width: 200px;">Excluir</button>
+        </div>
+        <br/>
+    </form>
+</div>
+
+<a asp-action="Index" class="btn btn-dark" style="width: 200px;">Voltar para a Lista</a>

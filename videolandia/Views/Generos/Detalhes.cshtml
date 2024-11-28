@@ -1,0 +1,30 @@
+﻿@model videolandia.Models.Genero
+
+@{
+    ViewData["Title"] = "Detalhes do Gênero";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<h1>Detalhes do Gênero</h1>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Nome do Gênero
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NomeGenero)
+        </dd>
+    </dl>
+</div>
+
+<div class="d-flex gap-2">
+    <form asp-action="Editar" asp-route-id="@Model?.Id" method="get" class="d-inline">
+        <button type="submit" class="btn btn-primary" style="width: 200px;">Editar</button>
+    </form>
+    <form asp-action="Index" method="get" class="d-inline">
+        <button type="submit" class="btn btn-dark" style="width: 200px;">Voltar à Lista</button>
+    </form>
+</div>

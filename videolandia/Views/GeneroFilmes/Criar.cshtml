@@ -1,0 +1,56 @@
+﻿@model videolandia.Models.GeneroFilme
+
+@{
+    ViewData["Title"] = "Criar Gênero de Filme";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<h1>Criar Gênero de Filme</h1>
+
+<h4>Detalhes da Relação:</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Criar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Seleção de Filme -->
+            <div class="form-group">
+                <label asp-for="FilmeId" class="control-label">Filme</label>
+                <select asp-for="FilmeId" class="form-control" asp-items="ViewBag.FilmeId">
+                    <option value="">Selecione um Filme</option>
+                </select>
+                <span asp-validation-for="FilmeId" class="text-danger"></span>
+            </div>
+
+            <!-- Seleção de Gênero -->
+            <div class="form-group">
+                <label asp-for="GeneroId" class="control-label">Gênero</label>
+                <select asp-for="GeneroId" class="form-control" asp-items="ViewBag.GeneroId">
+                    <option value="">Selecione um Gênero</option>
+                </select>
+                <span asp-validation-for="GeneroId" class="text-danger"></span>
+            </div>
+            <br/>
+            <!-- Botão de Enviar -->
+            <div class="form-group">
+                <input type="submit" value="Criar Nova Relação" class="btn btn-primary" style="width: 200px;" />
+            </div>
+            <br />
+            
+        </form>
+    </div>
+    
+    <form asp-action="Index" class="d-inline">
+        <button type="submit" class="btn btn-dark" style="width: 200px">Voltar à Lista</button>
+    </form>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

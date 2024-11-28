@@ -1,0 +1,60 @@
+﻿@model videolandia.Models.Contato
+
+@{
+    ViewData["Title"] = "Editar";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<h1>Editar Contato</h1>
+
+<h4>Informações do Contato</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Editar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group">
+                <label asp-for="NomeContato" class="control-label">Nome</label>
+                <input asp-for="NomeContato" class="form-control" />
+                <span asp-validation-for="NomeContato" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Assunto" class="control-label">Assunto</label>
+                <input asp-for="Assunto" class="form-control" />
+                <span asp-validation-for="Assunto" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Mensagem" class="control-label">Mensagem</label>
+                <textarea asp-for="Mensagem" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Mensagem" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <input type="submit" value="Salvar Contato" class="btn btn-primary" style="width: 200px;" />
+            </div>
+            <br/>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-dark" style="width: 200px;">Voltar à Lista</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

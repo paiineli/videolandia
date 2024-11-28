@@ -1,0 +1,62 @@
+﻿@model videolandia.Models.Filme
+
+@{
+    ViewData["Title"] = "Criar Filme";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<h1>Criar Filme</h1>
+
+<h4>Detalhes do Filme</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Criar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Nome do Filme -->
+            <div class="form-group">
+                <label asp-for="NomeFilme" class="control-label"></label>
+                <input asp-for="NomeFilme" class="form-control" />
+                <span asp-validation-for="NomeFilme" class="text-danger"></span>
+            </div>
+
+            <!-- URL do Poster -->
+            <div class="form-group">
+                <label asp-for="PosterUrl" class="control-label"></label>
+                <input asp-for="PosterUrl" class="form-control" />
+                <span asp-validation-for="PosterUrl" class="text-danger"></span>
+            </div>
+
+            <!-- Data de Lançamento -->
+            <div class="form-group">
+                <label asp-for="DtLancamento" class="control-label"></label>
+                <input asp-for="DtLancamento" class="form-control" type="date" />
+                <span asp-validation-for="DtLancamento" class="text-danger"></span>
+            </div>
+
+            <!-- Diretor -->
+            <div class="form-group">
+                <label asp-for="Diretor" class="control-label"></label>
+                <input asp-for="Diretor" class="form-control" />
+                <span asp-validation-for="Diretor" class="text-danger"></span>
+            </div>
+            <br/>
+            <!-- Botões de Submissão e Voltar -->
+            <div class="form-group">
+                <input type="submit" value="Criar Novo" class="btn btn-primary" style="width: 200px" />
+            </div>
+            <br />
+        </form>
+    </div>
+</div>
+<form asp-action="Index" method="get" class="d-inline">
+    <button type="submit" class="btn btn-dark" style="width: 200px">Voltar à Lista</button>
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

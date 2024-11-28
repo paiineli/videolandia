@@ -1,0 +1,43 @@
+﻿@model videolandia.Models.GeneroFilme
+
+@{
+    ViewData["Title"] = "Excluir Gênero de Filme";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<h1>Excluir</h1>
+
+<h3>Você tem certeza que deseja excluir este item?</h3>
+<div>
+    <h4>Gênero de Filme</h4>
+    <hr />
+    <dl class="row">
+        <!-- Exibição do nome do filme -->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Filme)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Filme.NomeFilme)
+        </dd>
+
+        <!-- Exibição do nome do gênero -->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Genero)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Genero.NomeGenero)
+        </dd>
+    </dl>
+
+    <!-- Formulário de exclusão -->
+    <form asp-action="Deletar">
+        <!-- Campos ocultos para enviar as IDs do Filme e Gênero -->
+        <input type="hidden" asp-for="FilmeId" />
+        <input type="hidden" asp-for="GeneroId" />
+        <!-- Botão para confirmar exclusão -->
+        <input type="submit" value="Excluir" class="btn btn-danger" style="width: 200px;" /> 
+        <a asp-action="Index" class="btn btn-dark" style="width: 200px;">Voltar para a Lista</a>
+    </form>
+</div>

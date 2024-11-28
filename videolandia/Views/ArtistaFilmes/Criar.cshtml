@@ -1,0 +1,52 @@
+﻿@model videolandia.Models.ArtistaFilme
+
+@{
+	ViewData["Title"] = "Adicionar Personagem";
+}
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<h1 class="mb-4">Adicionar Personagem</h1>
+
+<h4 class="mb-3">Relação entre Artista e Filme</h4>
+<hr />
+<div class="row">
+	<div class="col-md-6">
+		<form asp-action="Criar">
+			<div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+			<div class="mb-3">
+				<label asp-for="ArtistaId" class="form-label">Artista</label>
+				<select asp-for="ArtistaId" class="form-select" asp-items="ViewBag.ArtistaId"></select>
+			</div>
+
+			<div class="mb-3">
+				<label asp-for="FilmeId" class="form-label">Filme</label>
+				<select asp-for="FilmeId" class="form-select" asp-items="ViewBag.FilmeId"></select>
+			</div>
+
+			<div class="mb-3">
+				<label asp-for="Personagem" class="form-label">Personagem</label>
+				<input asp-for="Personagem" class="form-control" placeholder="Nome do personagem" />
+				<span asp-validation-for="Personagem" class="text-danger"></span>
+			</div>
+
+			<div class="mt-4">
+				<button type="submit" class="btn btn-primary w-100" style="width: 200px;">Criar Relação</button>
+			</div>
+
+			<div class="mt-4">
+				<a asp-action="Index" class="btn btn-dark w-100" style="width: 200px;">Voltar à Lista</a>
+			</div>
+
+		</form>
+	</div>
+</div>
+
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

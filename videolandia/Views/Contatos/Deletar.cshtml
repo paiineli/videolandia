@@ -1,0 +1,51 @@
+﻿@model videolandia.Models.Contato
+
+@{
+    ViewData["Title"] = "Excluir";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<h1>Excluir Contato</h1>
+
+<h3>Você tem certeza que deseja excluir este contato?</h3>
+
+<div>
+    <h4>Detalhes do Contato</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NomeContato)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NomeContato)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Assunto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Assunto)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Mensagem)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Mensagem)
+        </dd>
+    </dl>
+    <br/>
+    <form asp-action="Deletar">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <button type="submit" class="btn btn-danger" style="width: 200px;">Excluir Contato</button>
+            <a asp-action="Index" class="btn btn-dark" style="width: 200px;">Voltar a Lista</a>
+        </div>
+    </form>
+</div>

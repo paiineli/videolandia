@@ -1,0 +1,31 @@
+﻿@model IEnumerable<videolandia.Models.Filme>
+@{
+    ViewData["Title"] = "Página Inicial";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<div class="text-lg-start mb-4">
+    <h1 class="fw-bold">Adicionados Recentemente</h1>
+</div>
+
+<div class="row g-4">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-4">
+            <div class="card shadow-sm h-100" style="width: 18rem;">
+                <img src="@item.PosterUrl" class="card-img-top" alt="Capa do filme: @item.NomeFilme">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title" style="word-wrap: break-word;" title="@item.NomeFilme">@item.NomeFilme</h5>
+                    <p class="card-text text-muted">Lançado em: @item.DtLancamento.Year</p>
+                    <div class="mt-auto">
+                        <a asp-controller="Filmes" asp-action="Detalhes" asp-route-id="@item.Id"
+                           class="btn btn-dark w-100">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>

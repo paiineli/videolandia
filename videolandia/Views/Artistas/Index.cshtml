@@ -1,0 +1,49 @@
+﻿@model IEnumerable<videolandia.Models.Artista>
+
+@{
+    ViewData["Title"] = "Lista de Artistas";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<h1>Lista de Artistas</h1>
+
+<p>
+    <!-- Botão Criar Novo Gênero -->
+    <a asp-action="Criar" class="btn btn-dark" style="width: 300px;">Criar Novo</a>
+</p>
+
+<!-- Formulário de filtro -->
+<form asp-controller="Artistas" asp-action="Index" method="get">
+    <div class="form-group">
+        <label for="SearchString">Filtrar por nome:</label>
+        <input type="text" id="SearchString" name="SearchString" class="form-control" />
+    </div><br/>
+    <button type="submit" class="btn btn-primary" style="width: 150px;">Filtrar</button>
+</form>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;">
+    @foreach (var item in Model)
+    {
+        <div style="text-align: center; width: 150px; margin-bottom: 20px;">
+            <!-- Link para detalhes do artista -->
+            <a asp-controller="Artistas" asp-action="Detalhes" asp-route-id="@item.Id">
+                <img src="@item.ArtistaUrl" height="150" style="display: block; margin: 0 auto; border-radius: 10px; box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);" alt="@item.NomeArtista" />
+            </a>
+
+            <p style="margin-top: 10px; font-weight: bold;">@item.NomeArtista</p>
+            <p>@item.DtNascimento.Year</p>
+            <p>@item.PaisNascimento</p>
+
+            <!-- Links de ações (Editar, Detalhes, Excluir) -->
+            <div>
+                <a class="btn btn-primary btn-sm w-100 mb-2" asp-action="Editar" asp-route-id="@item.Id">Editar</a>
+                <a class="btn btn-info btn-sm w-100 mb-2" asp-action="Detalhes" asp-route-id="@item.Id">Detalhes</a>
+                <a class="btn btn-danger btn-sm w-100" asp-action="Deletar" asp-route-id="@item.Id">Excluir</a>
+            </div>
+
+        </div>
+    }
+</div>
+

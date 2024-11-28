@@ -1,0 +1,44 @@
+﻿@model videolandia.Models.Genero
+
+@{
+    ViewData["Title"] = "Editar Gênero";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<h1>Editar Gênero</h1>
+
+<h4><strong>@Model.NomeGenero</strong></h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Editar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group">
+                <label asp-for="NomeGenero" class="control-label">Nome do Gênero</label>
+                <input asp-for="NomeGenero" class="form-control" />
+                <span asp-validation-for="NomeGenero" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" style="width: 200px;">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="mt-3">
+    <form asp-action="Index" method="get" class="d-inline">
+        <button type="submit" class="btn btn-dark" style="width: 200px;">Voltar à Lista</button>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

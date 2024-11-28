@@ -1,0 +1,51 @@
+﻿@model IEnumerable<videolandia.Models.ArtistaFilme>
+
+@{
+    ViewData["Title"] = "Índice de Relações Artista - Filme";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<h1 class="mb-4">Índice de Relações Artista - Filme</h1>
+
+<p>
+    <a class="btn btn-dark" style="width: 200px;" asp-action="Criar">Criar Nova Relação</a>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Artista)</th>
+            <th>@Html.DisplayNameFor(model => model.Filme)</th>
+            <th>@Html.DisplayNameFor(model => model.Personagem)</th>
+            <th>Foto do Artista</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Artista.NomeArtista)</td>
+                <td>@Html.DisplayFor(modelItem => item.Filme.NomeFilme)</td>
+                <td>@Html.DisplayFor(modelItem => item.Personagem)</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.Artista.ArtistaUrl))
+                    {
+                        <img src="@item.Artista.ArtistaUrl" width="80" height="120" alt="Foto do Artista" class="img-thumbnail" style="border-radius: 10px;" />
+                    }
+                    else
+                    {
+                        <span>Sem Foto</span>
+                    }
+                </td>
+                <td>
+                    <a class="btn btn-primary btn-sm" style="width: 100px;"asp-action="Editar" asp-route-artistaId="@item.ArtistaId" asp-route-filmeId="@item.FilmeId">Editar</a>
+                    <a class="btn btn-info btn-sm" style="width: 100px;"asp-action="Detalhes" asp-route-artistaId="@item.ArtistaId" asp-route-filmeId="@item.FilmeId">Detalhes</a>
+                    <a class="btn btn-danger btn-sm" style="width: 100px;" asp-action="Deletar" asp-route-artistaId="@item.ArtistaId" asp-route-filmeId="@item.FilmeId">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

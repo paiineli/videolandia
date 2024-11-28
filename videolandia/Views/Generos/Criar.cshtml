@@ -1,0 +1,42 @@
+﻿@model videolandia.Models.Genero
+
+@{
+    ViewData["Title"] = "Criar Novo Gênero";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<h1>Criar Novo Gênero</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>Detalhes do Gênero</h4>
+        <hr />
+        <form asp-action="Criar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="NomeGenero" class="control-label">Nome do Gênero</label>
+                <input asp-for="NomeGenero" class="form-control" placeholder="Ex: Ação, Comédia, Drama" />
+                <span asp-validation-for="NomeGenero" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" style="width: 200px;">Criar Gênero</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="mt-3">
+    <form asp-action="Index" method="get" class="d-inline">
+        <button type="submit" class="btn btn-dark" style="width: 200px;">Voltar à Lista</button>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

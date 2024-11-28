@@ -1,0 +1,37 @@
+﻿@model videolandia.Models.GeneroFilme
+
+@{
+    ViewData["Title"] = "Detalhes do Gênero de Filme";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Gênero de Filme</h4>
+    <hr />
+    <dl class="row">
+        <!-- Exibição do nome do filme -->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Filme)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Filme.NomeFilme)
+        </dd>
+
+        <!-- Exibição do nome do gênero -->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Genero)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Genero.NomeGenero)
+        </dd>
+    </dl>
+</div>
+
+<div class="mt-4">
+    <a asp-action="Editar" asp-route-artistaId="@Model.GeneroId" asp-route-filmeId="@Model.FilmeId" class="btn btn-primary" style="width: 200px;">Editar</a>
+    <a asp-action="Index" class="btn btn-dark" style="width: 200px;">Voltar para a lista</a>
+</div>
