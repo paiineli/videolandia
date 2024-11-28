@@ -26,6 +26,10 @@ O projeto segue uma estrutura organizada e modularizada:
 - **Views**: Onde a interface do usuário é renderizada.
 - **Database**: Usado para persistir as informações de filmes, atores e suas fotos.
 
+## 🎥 Vídeo de Demonstração
+Confira o vídeo de demonstração da aplicação no YouTube:  
+[![Videolândia - Demonstração](https://img.youtube.com/vi/AAEBCR96BUQ/0.jpg)](https://youtu.be/AAEBCR96BUQ)
+
 ## 🚀 Como Rodar
 1. Clone o repositório:
    ```bash
