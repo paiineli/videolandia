@@ -1,36 +1,28 @@
 # Videolândia 🎥
 
-**Videolândia** é uma aplicação completa desenvolvida em .NET 8, projetada para gerenciar um catálogo de filmes e atores. A aplicação permite registrar, atualizar, excluir e visualizar informações sobre filmes e seus respectivos atores. Com uma arquitetura robusta, uso de padrões modernos e uma interface simples e intuitiva, o projeto é um exemplo de como organizar e construir aplicações de maneira eficiente e escalável.
+**Videolândia** is an academic project developed during my undergraduate studies using .NET 8. It manages a catalog of movies and actors, allowing adding, updating, deleting, and viewing records, with relationships between entities and photo uploads.
 
-O projeto foi construído para demonstrar boas práticas de programação e design, usando o **Entity Framework Core** para manipulação de dados e o **C#** como linguagem principal. As funcionalidades incluem o gerenciamento de filmes e atores, a criação de relacionamentos entre as entidades e o upload de fotos para personalizar os registros.
+## 🛠 Technologies
+- **.NET 8** and **C#**  
+- **Entity Framework Core**  
+- **SQL Server**  
+- **HTML/CSS** and **Bootstrap**  
 
-## 🛠 Tecnologias Utilizadas
-- **.NET 8**: Framework principal utilizado para o backend.
-- **Entity Framework Core**: Ferramenta para gerenciamento e acesso ao banco de dados.
-- **C#**: Linguagem de programação principal.
-- **SQL Server**: Banco de dados utilizado para persistência de dados.
-- **HTML/CSS**: Tecnologias usadas na criação da interface de usuário (UI).
-- **Bootstrap**: Framework para estilização e design responsivo.
+## ✨ Features
+- Management of movies and actors  
+- Relationships between entities  
+- Photo uploads  
+- Simple and intuitive interface  
 
-## ✨ Funcionalidades
-- Cadastro, atualização e exclusão de filmes e atores.
-- Visualização de todos os filmes e atores cadastrados.
-- Relacionamento entre filmes e atores, permitindo uma organização eficiente.
-- Upload de fotos para personalizar os filmes e atores.
-- Interface simples e intuitiva para uma navegação fácil e fluida.
+## 📂 Project Structure
+- **Controllers**: control logic  
+- **Models**: entities and data structure  
+- **Views**: user interface  
+- **Database**: data persistence  
 
-## 📂 Estrutura do Projeto
-O projeto segue uma estrutura organizada e modularizada:
-- **Controllers**: Responsáveis pela lógica de controle e interação com a interface.
-- **Models**: Contêm as entidades e a estrutura dos dados.
-- **Views**: Onde a interface do usuário é renderizada.
-- **Database**: Usado para persistir as informações de filmes, atores e suas fotos.
+## 🎥 Demo
+[![Videolândia - Demo](https://img.youtube.com/vi/AAEBCR96BUQ/0.jpg)](https://youtu.be/AAEBCR96BUQ)
 
-## 🎥 Vídeo de Demonstração
-Confira o vídeo de demonstração da aplicação no YouTube:  
-[![Videolândia - Demonstração](https://img.youtube.com/vi/AAEBCR96BUQ/0.jpg)](https://youtu.be/AAEBCR96BUQ)
-
-## 🚀 Como Rodar
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/paiineli/videolandia.git
+## 🚀 How to Run
+```bash
+git clone https://github.com/paiineli/videolandia.git
